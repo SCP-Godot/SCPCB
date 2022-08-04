@@ -1,0 +1,82 @@
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://b5fil550n4o3y"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_k5rk5"]
+resource_name = "Limiter"
+ceiling_db = -10.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_yedjb"]
+resource_name = "Reverb"
+predelay_msec = 20.0
+predelay_feedback = 0.0
+room_size = 1.0
+damping = 1.0
+hipass = 0.6
+wet = 0.09
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_3y07e"]
+resource_name = "Reverb"
+predelay_msec = 20.0
+predelay_feedback = 0.0
+room_size = 1.0
+damping = 1.0
+hipass = 0.74
+wet = 0.15
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_lw2ow"]
+resource_name = "Reverb"
+predelay_msec = 20.0
+predelay_feedback = 0.0
+room_size = 0.6
+hipass = 0.9
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_k5rk5")
+bus/0/effect/0/enabled = true
+bus/1/name = &"Ambience"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"Footsteps"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"SFX"
+bus/5/name = &"ReverbHuge"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"SFX"
+bus/5/effect/0/effect = SubResource("AudioEffectReverb_yedjb")
+bus/5/effect/0/enabled = true
+bus/6/name = &"ReverbHigh"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectReverb_3y07e")
+bus/6/effect/0/enabled = true
+bus/7/name = &"ReverbMedium"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"SFX"
+bus/7/effect/0/effect = SubResource("AudioEffectReverb_lw2ow")
+bus/7/effect/0/enabled = true

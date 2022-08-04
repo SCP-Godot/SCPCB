@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c65ateth04o4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cepx0"]
+size = Vector3(12.1601, 8.07572, 25.0934)
+
+[node name="ReverbHuge" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9048, 4.33656, -15.6149)
+reverb_bus_enable = true
+reverb_bus_name = &"ReverbHuge"
+reverb_bus_amount = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51385, 3.4492, 0)
+shape = SubResource("BoxShape3D_cepx0")

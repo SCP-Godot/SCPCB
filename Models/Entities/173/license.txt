@@ -1,0 +1,11 @@
+Model Information:
+* title:	SCP-173
+* source:	https://sketchfab.com/3d-models/scp-173-5756d40c49fa48ab972a7aa81ecd250e
+* author:	HolmanArt (https://sketchfab.com/HolmanArt)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "SCP-173" (https://sketchfab.com/3d-models/scp-173-5756d40c49fa48ab972a7aa81ecd250e) by HolmanArt (https://sketchfab.com/HolmanArt) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

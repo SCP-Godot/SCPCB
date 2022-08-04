@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cvmtdst0kshhs"]
+
+[resource]
+subsurf_scatter_skin_mode = true
+subsurf_scatter_transmittance_depth = 0.132

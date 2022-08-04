@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cglgl4q7l4yf"]
+
+[ext_resource type="Script" path="res://Scripts/FootstepResource.gd" id="1_5u1la"]
+
+[resource]
+script = ExtResource("1_5u1la")
+step = null
+run = null

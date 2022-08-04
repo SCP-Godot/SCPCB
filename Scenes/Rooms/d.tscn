@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://do4hi2qlrrps5"]
+
+[ext_resource type="Script" path="res://Scripts/StaticCollider.gd" id="2_btysi"]
+[ext_resource type="Resource" uid="uid://cglgl4q7l4yf" path="res://Resources/Footsteps/FootstepsConcrete.tres" id="3_3n8mx"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n77ce"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_efccd"]
+density = 0.1
+height_falloff = 2.92817
+
+[node name="d" type="Node3D"]
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.1254, 11.3601, -5.33875)
+light_energy = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 14.4144
+spot_angle = 75.4065
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 29.4629, 12.3244, -5.33875)
+light_energy = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 14.4144
+spot_angle = 75.4065
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 37.1254, 11.3601, -15.8216)
+light_energy = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 14.4144
+spot_angle = 75.4065
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 24.3346, 11.3601, -17.2837)
+light_energy = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 14.4144
+spot_angle = 75.4065
+
+[node name="Chamber" type="Node3D" parent="Lighting"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(1, 0, 0, 0, -0.792173, 0.610297, 0, -0.610297, -0.792173, 47.9304, 10.4997, -22.3453)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(1, 0, 0, 0, -0.792173, 0.610297, 0, -0.610297, -0.792173, 44.5251, 10.4997, -22.3453)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(1, 0, 0, 0, -0.792173, 0.610297, 0, -0.610297, -0.792173, 51.4183, 10.4997, -22.3453)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(-1, 5.33406e-08, 6.92642e-08, 0, -0.79229, 0.610145, 8.74228e-08, 0.610145, 0.79229, 51.4118, 10.4997, -11.6718)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(-1, 5.33406e-08, 6.92642e-08, 0, -0.79229, 0.610145, 8.74228e-08, 0.610145, 0.79229, 47.9465, 10.4997, -11.6718)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lighting/Chamber"]
+transform = Transform3D(-1, 5.33406e-08, 6.92642e-08, 0, -0.79229, 0.610145, 8.74228e-08, 0.610145, 0.79229, 44.5232, 10.4997, -11.6718)
+light_color = Color(0.964706, 1, 0.929412, 1)
+light_energy = 11.899
+light_bake_mode = 1
+shadow_enabled = true
+shadow_blur = 4.0
+spot_range = 14.4144
+spot_angle = 54.85
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 2
+bounces = 4
+interior = true
+environment_mode = 1
+generate_probes_subdiv = 3
+script = ExtResource("2_btysi")
+footstep_resource = ExtResource("3_3n8mx")
+
+[node name="Colliders@PlaneStaticBody@CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.540735, -0.552554, 0)
+shape = SubResource("WorldBoundaryShape3D_n77ce")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2919, 7.26275, -14.983)
+extents = Vector3(14.4816, 4.20146, 11.9436)
+box_projection = true
+enable_shadows = true
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9209, 7.54214, -15.469)
+extents = Vector3(13.6353, 3.72552, 12.189)
+material = SubResource("FogMaterial_efccd")

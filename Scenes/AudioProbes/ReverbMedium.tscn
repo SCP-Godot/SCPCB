@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kcnjqmahty4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_og71g"]
+size = Vector3(12.1601, 8.07572, 17.4993)
+
+[node name="ReverbMedium" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5636, 4.33656, 0.647826)
+reverb_bus_enable = true
+reverb_bus_name = &"ReverbMedium"
+reverb_bus_amount = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51385, 3.4492, -2.54529)
+shape = SubResource("BoxShape3D_og71g")

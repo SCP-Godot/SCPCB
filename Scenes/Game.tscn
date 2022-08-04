@@ -1,0 +1,107 @@
+[gd_scene load_steps=20 format=3 uid="uid://db24n3ets7uc6"]
+
+[ext_resource type="PackedScene" uid="uid://4sk2yu3uykaf" path="res://Scenes/Rooms/Chamber173.tscn" id="1_lj0jw"]
+[ext_resource type="PackedScene" uid="uid://bj4xwna1y203g" path="res://Scenes/Entities/Player.tscn" id="2_x5b53"]
+[ext_resource type="AudioStream" uid="uid://ciyhiq8jaaxeu" path="res://Sounds/Music/The Dread.ogg" id="4_2t25p"]
+[ext_resource type="AudioStream" uid="uid://0wffud06r2tn" path="res://Sounds/Ambience/General/Ambient5.ogg" id="5_50el5"]
+[ext_resource type="AudioStream" uid="uid://dph7frsskc0ln" path="res://Sounds/Ambience/Zone1/Ambient2.ogg" id="5_skhyp"]
+[ext_resource type="AudioStream" uid="uid://ck21s7rx50hbc" path="res://Sounds/Ambience/General/Ambient11.ogg" id="6_cb68c"]
+[ext_resource type="AudioStream" uid="uid://inhbyatn4o0j" path="res://Sounds/Ambience/Zone1/Ambient8.ogg" id="6_purg1"]
+[ext_resource type="AudioStream" uid="uid://b7pv85w6ftnv8" path="res://Sounds/Ambience/Zone1/Ambient9.ogg" id="7_mkt81"]
+[ext_resource type="AudioStream" uid="uid://di8gihhkmeg40" path="res://Sounds/Ambience/General/Ambient14.ogg" id="7_viikb"]
+[ext_resource type="AudioStream" uid="uid://cyn6l1dkcqahi" path="res://Sounds/Ambience/Zone1/Ambient10.ogg" id="8_kblm7"]
+[ext_resource type="AudioStream" uid="uid://b8a7ihs6en61j" path="res://Sounds/Ambience/Zone1/Ambient11.ogg" id="9_4idff"]
+[ext_resource type="Script" path="res://Scripts/Ambience.gd" id="10_eselp"]
+[ext_resource type="AudioStream" uid="uid://bqv1lxrrh0ktu" path="res://Sounds/Ambience/General/Ambient8.ogg" id="14_4br8w"]
+[ext_resource type="AudioStream" uid="uid://ygij6n4uqbvp" path="res://Sounds/Alarm/Alarm2.ogg" id="15_7f16p"]
+[ext_resource type="AudioStream" uid="uid://d33ygqvo05jy8" path="res://Sounds/Ambience/General/Ambient10.ogg" id="15_ekouj"]
+
+[sub_resource type="Environment" id="Environment_ryxqi"]
+tonemap_mode = 3
+auto_exposure_enabled = true
+auto_exposure_scale = 0.1
+ssao_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_intensity = 4.0
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_color = Color(0.137255, 0.164706, 0.192157, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_saturation = 0.8
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4hevl"]
+streams_count = 5
+playback_mode = 1
+random_pitch = 1.0
+stream_0/stream = ExtResource("5_skhyp")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_purg1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_mkt81")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_kblm7")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_4idff")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f4gml"]
+streams_count = 6
+random_pitch = 1.0
+stream_0/stream = ExtResource("5_50el5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_cb68c")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_viikb")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("14_4br8w")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("15_ekouj")
+stream_4/weight = 1.0
+stream_5/weight = 1.0
+
+[sub_resource type="CameraEffects" id="CameraEffects_15jgn"]
+dof_blur_far_enabled = true
+override_exposure_enabled = true
+
+[node name="Game" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("2_x5b53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.083, 3.85895, -4.9017)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ryxqi")
+
+[node name="Chamber173" parent="." instance=ExtResource("1_lj0jw")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2t25p")
+autoplay = true
+bus = &"Music"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_4hevl")
+bus = &"Ambience"
+script = ExtResource("10_eselp")
+min_time = 40.0
+max_time = 50.0
+
+[node name="GeneralAmbience" type="AudioStreamPlayer" parent="Ambience"]
+stream = SubResource("AudioStreamRandomizer_f4gml")
+volume_db = -5.0
+bus = &"Ambience"
+script = ExtResource("10_eselp")
+min_time = 30.0
+max_time = 40.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.814895, 0, -0.579608, 0, 1, 0, 0.579608, 0, 0.814895, 21.0106, 6.18252, -2.01634)
+effects = SubResource("CameraEffects_15jgn")
+fov = 60.0
+
+[node name="Alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7f16p")
+autoplay = true
+bus = &"Ambience"

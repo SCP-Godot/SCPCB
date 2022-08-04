@@ -1,0 +1,4 @@
+This project adapts content from SCP Foundation (http://www.scp-wiki.net/), as well as assets from SCP - Containment Breach (https://www.scpcbgame.com/).
+
+Third-party models:
+"Industrial Work Light" (https://skfb.ly/6XM9F) by denis_cliofas is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
