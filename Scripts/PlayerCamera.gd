@@ -14,7 +14,7 @@ var speed_multiplier: float = 1.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if player.current_state == 1 or player.current_state == 2 and enable_bobbing:
+	if player.current_state == player.State.WALKING or player.current_state == player.State.RUNNING and enable_bobbing:
 		timer += delta * player.velocity.length() / player.SPEED * speed_multiplier
 		process_bob(delta)
 
@@ -28,7 +28,7 @@ func process_bob(delta):
 	position.x = cos(timer * speed) * max_bob_x
 	position.y = sin(timer * speed * 2) * max_bob_y
 
-	if player.current_state == 2:
+	if player.current_state == player.State.RUNNING:
 		speed_multiplier = 1.4
 	else:
 		speed_multiplier = 1
