@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bj4xwna1y203g"]
+[gd_scene load_steps=22 format=3 uid="uid://bj4xwna1y203g"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
@@ -7,27 +7,13 @@
 [ext_resource type="Script" path="res://Scripts/FPSLabel.gd" id="3_3g66n"]
 [ext_resource type="Script" path="res://Scripts/EngineInfoLabel.gd" id="5_34xk0"]
 [ext_resource type="FontFile" uid="uid://bstn6m2i72cls" path="res://Fonts/Roboto-Medium.ttf" id="5_ujs62"]
-[ext_resource type="AudioStream" uid="uid://f5fmsmmuri2p" path="res://Sounds/Footsteps/Concrete/Step1.ogg" id="7_0tgc0"]
-[ext_resource type="AudioStream" uid="uid://crtng1aw5nr52" path="res://Sounds/Footsteps/Concrete/Step2.ogg" id="8_4jdbp"]
 [ext_resource type="Texture2D" uid="uid://col0drvgk8a1p" path="res://Textures/handsymbol.png" id="8_ssesy"]
-[ext_resource type="AudioStream" uid="uid://ca7gb2ge7jy53" path="res://Sounds/Footsteps/Concrete/Step3.ogg" id="9_7i381"]
 [ext_resource type="Script" path="res://Scripts/InteractIcon.gd" id="9_pdnxj"]
 [ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="10_bghgm"]
-[ext_resource type="AudioStream" uid="uid://dki0lh0pdyqw" path="res://Sounds/Footsteps/Concrete/Step4.ogg" id="10_ixj37"]
-[ext_resource type="AudioStream" uid="uid://bnu0pegsvdggk" path="res://Sounds/Footsteps/Concrete/Step5.ogg" id="11_t2r3i"]
-[ext_resource type="AudioStream" uid="uid://doxoh4sfccul8" path="res://Sounds/Footsteps/Concrete/Step6.ogg" id="12_vi0k3"]
+[ext_resource type="AudioStream" uid="uid://bdpf0sbwdcjdg" path="res://Resources/Footsteps/FootstepsConcreteNew.tres" id="12_tviqj"]
+[ext_resource type="AudioStream" uid="uid://cu6t0t4l0wlr3" path="res://Resources/Footsteps/FootstepsConcreteRunNew.tres" id="13_l7guh"]
 [ext_resource type="Script" path="res://Scripts/ViewmodelRoot.gd" id="14_0bw8x"]
-[ext_resource type="AudioStream" uid="uid://bwgjxsygk5i6d" path="res://Sounds/Footsteps/Concrete/Run/Run1.ogg" id="19_enlrm"]
-[ext_resource type="AudioStream" uid="uid://h8ni2jr73lpc" path="res://Sounds/Footsteps/Concrete/Step7.ogg" id="19_qr3u7"]
 [ext_resource type="AudioStream" uid="uid://bv1ecf5lpk18d" path="res://Sounds/D9341/breath0.ogg" id="19_u2ce7"]
-[ext_resource type="AudioStream" uid="uid://eusj1nljlese" path="res://Sounds/Footsteps/Concrete/Run/Run2.ogg" id="20_his7y"]
-[ext_resource type="AudioStream" uid="uid://om6m5yt8wjk" path="res://Sounds/Footsteps/Concrete/Step8.ogg" id="20_nfc3o"]
-[ext_resource type="AudioStream" uid="uid://d22csr42tng6j" path="res://Sounds/Footsteps/Concrete/Run/Run3.ogg" id="21_bbqrs"]
-[ext_resource type="AudioStream" uid="uid://da7750wrbwcq6" path="res://Sounds/Footsteps/Concrete/Run/Run4.ogg" id="22_mftju"]
-[ext_resource type="AudioStream" uid="uid://dl3qifkaidyqs" path="res://Sounds/Footsteps/Concrete/Run/Run5.ogg" id="23_r74hg"]
-[ext_resource type="AudioStream" uid="uid://3gf812yr8ad5" path="res://Sounds/Footsteps/Concrete/Run/Run6.ogg" id="24_orfgj"]
-[ext_resource type="AudioStream" uid="uid://cl4xd4b8evr6t" path="res://Sounds/Footsteps/Concrete/Run/Run7.ogg" id="27_jejbb"]
-[ext_resource type="AudioStream" uid="uid://iqp18nrbdygd" path="res://Sounds/Footsteps/Concrete/Run/Run8.ogg" id="28_x0ee8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtsqa"]
 radius = 0.265769
@@ -80,50 +66,6 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jlepi"]
 radius = 1.11421
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xkrxt"]
-streams_count = 8
-playback_mode = 2
-random_pitch = 1.0
-random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("7_0tgc0")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("8_4jdbp")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("9_7i381")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("10_ixj37")
-stream_3/weight = 1.0
-stream_4/stream = ExtResource("11_t2r3i")
-stream_4/weight = 1.0
-stream_5/stream = ExtResource("12_vi0k3")
-stream_5/weight = 1.0
-stream_6/stream = ExtResource("19_qr3u7")
-stream_6/weight = 1.0
-stream_7/stream = ExtResource("20_nfc3o")
-stream_7/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h7dfb"]
-streams_count = 8
-playback_mode = 2
-random_pitch = 1.0
-random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("19_enlrm")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("20_his7y")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("21_bbqrs")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("22_mftju")
-stream_3/weight = 1.0
-stream_4/stream = ExtResource("23_r74hg")
-stream_4/weight = 1.0
-stream_5/stream = ExtResource("24_orfgj")
-stream_5/weight = 1.0
-stream_6/stream = ExtResource("27_jejbb")
-stream_6/weight = 1.0
-stream_7/stream = ExtResource("28_x0ee8")
-stream_7/weight = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ua1i3")
@@ -279,14 +221,14 @@ shape = SubResource("SphereShape3D_jlepi")
 
 [node name="Concrete" type="AudioStreamPlayer3D" parent="SFX/Footsteps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82633, 0)
-stream = SubResource("AudioStreamRandomizer_xkrxt")
+stream = ExtResource("12_tviqj")
 max_polyphony = 4
 panning_strength = 0.0
 bus = &"Footsteps"
 
 [node name="ConcreteRun" type="AudioStreamPlayer3D" parent="SFX/Footsteps/Concrete"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82633, 0)
-stream = SubResource("AudioStreamRandomizer_h7dfb")
+stream = ExtResource("13_l7guh")
 max_polyphony = 4
 panning_strength = 0.0
 bus = &"Footsteps"

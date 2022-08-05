@@ -1,13 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cebxeqe61r3s8"]
+[gd_scene load_steps=14 format=3 uid="uid://cebxeqe61r3s8"]
 
 [ext_resource type="PackedScene" uid="uid://ecorxtyan1s2" path="res://Models/Doors/LCZDoor/LCZDoor.glb" id="1_3ng8o"]
 [ext_resource type="Script" path="res://Scripts/Door.gd" id="1_bso7h"]
-[ext_resource type="AudioStream" uid="uid://dejg4vyxfjxq3" path="res://Sounds/Door/DoorOpen1.ogg" id="2_w1lfn"]
-[ext_resource type="AudioStream" uid="uid://bhx3pcq536pqy" path="res://Sounds/Door/DoorOpen2.ogg" id="3_wh4g0"]
-[ext_resource type="AudioStream" uid="uid://cnrsyn2i6o57d" path="res://Sounds/Door/DoorOpen3.ogg" id="4_bjxxa"]
-[ext_resource type="AudioStream" uid="uid://bm4uemfxtpgw" path="res://Sounds/Door/DoorClose1.ogg" id="5_h80x0"]
-[ext_resource type="AudioStream" uid="uid://csslph58vinl7" path="res://Sounds/Door/DoorClose2.ogg" id="6_y75uy"]
-[ext_resource type="AudioStream" uid="uid://cgojw8f81cwsm" path="res://Sounds/Door/DoorClose3.ogg" id="7_mhynm"]
+[ext_resource type="AudioStream" uid="uid://shamduhgxonu" path="res://Sounds/Door/New/DoorOpen.ogg" id="3_c75bk"]
+[ext_resource type="AudioStream" uid="uid://hvo4add81xou" path="res://Sounds/Door/New/DoorClose.ogg" id="6_rsltm"]
 [ext_resource type="PackedScene" uid="uid://wyljmbh6ynxn" path="res://Models/Buttons/Button.glb" id="8_86o1a"]
 [ext_resource type="Script" path="res://Scripts/ButtonInteractable.gd" id="9_5e1bl"]
 [ext_resource type="AudioStream" uid="uid://8qcny703s5l7" path="res://Sounds/Buttons/Button.ogg" id="11_ejpkl"]
@@ -15,28 +11,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iq4dk"]
 size = Vector3(2.34181, 3.86988, 0.179426)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nfgxr"]
-streams_count = 3
-random_pitch = 1.0
-random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("2_w1lfn")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("3_wh4g0")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("4_bjxxa")
-stream_2/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kfswo"]
-streams_count = 3
-random_pitch = 1.0
-random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("5_h80x0")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("6_y75uy")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("7_mhynm")
-stream_2/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_y5ym8"]
 resource_name = "Open"
@@ -125,11 +99,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97887, -0.0694238)
 shape = SubResource("BoxShape3D_iq4dk")
 
 [node name="DoorOpenSound" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamRandomizer_nfgxr")
+stream = ExtResource("3_c75bk")
 panning_strength = 0.5
 
 [node name="DoorCloseSound" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamRandomizer_kfswo")
+stream = ExtResource("6_rsltm")
 panning_strength = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -90,7 +90,6 @@ max_time = 50.0
 
 [node name="GeneralAmbience" type="AudioStreamPlayer" parent="Ambience"]
 stream = SubResource("AudioStreamRandomizer_f4gml")
-volume_db = -5.0
 bus = &"Ambience"
 script = ExtResource("10_eselp")
 min_time = 30.0

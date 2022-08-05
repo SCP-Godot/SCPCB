@@ -1,21 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctf8k4cfeai45"]
+[gd_scene load_steps=4 format=3 uid="uid://ctf8k4cfeai45"]
 
 [ext_resource type="Script" path="res://Scripts/SCP173.gd" id="1_hedtg"]
 [ext_resource type="PackedScene" uid="uid://wfhq1chfuo4k" path="res://Models/Entities/173/scene.gltf" id="1_nkoi4"]
-[ext_resource type="AudioStream" uid="uid://dns0l23ewapby" path="res://Sounds/NeckSnap/NeckSnap1.ogg" id="3_5hx6n"]
-[ext_resource type="AudioStream" uid="uid://ca57852xvemqk" path="res://Sounds/NeckSnap/NeckSnap2.ogg" id="4_orjx8"]
-[ext_resource type="AudioStream" uid="uid://dwsr3xkvub2fk" path="res://Sounds/NeckSnap/NeckSnap3.ogg" id="5_0ys44"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_etvqf"]
-streams_count = 3
-random_pitch = 1.0
-random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("3_5hx6n")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("4_orjx8")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("5_0ys44")
-stream_2/weight = 1.0
+[ext_resource type="AudioStream" uid="uid://denddgmuo62x3" path="res://Sounds/NeckSnap/New/NeckSnap.ogg" id="3_kske4"]
 
 [node name="SCP173" type="Node3D"]
 script = ExtResource("1_hedtg")
@@ -28,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33592, 0)
 aabb = AABB(-0.42059, -1.53244, -0.564433, 0.841179, 3.06489, 1.12887)
 
 [node name="NeckSnap" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_etvqf")
+stream = ExtResource("3_kske4")
 bus = &"SFX"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="screen_exited"]
