@@ -47,7 +47,7 @@ func use_item(idx: int):
 		remove_item(idx)
 
 	await get_tree().create_timer(item.use_time).timeout
-	item.call("_on_used", get_owner(), self, idx)
+	item._on_used(get_owner(), self, idx)
 
 func set_item_use_sound(stream: AudioStream):
 	%ItemSfx.stream = stream

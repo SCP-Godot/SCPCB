@@ -37,35 +37,43 @@
 #include <godot_cpp/godot.hpp>
 
 #include "example.h"
+#include "room_generator.hpp"
 
 using namespace godot;
 
-void initialize_scpcb_module(ModuleInitializationLevel p_level) {
-	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+void initialize_scpcb_module(ModuleInitializationLevel p_level)
+{
+	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE)
+	{
 		return;
 	}
 
 	ClassDB::register_class<ExampleRef>();
 	ClassDB::register_class<Example>();
+	ClassDB::register_class<RoomGenerator>();
 }
 
-void uninitialize_scpcb_module(ModuleInitializationLevel p_level) {
-	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+void uninitialize_scpcb_module(ModuleInitializationLevel p_level)
+{
+	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE)
+	{
 		return;
 	}
 }
 
-extern "C" {
+extern "C"
+{
 
-// Initialization.
+	// Initialization.
 
-GDNativeBool GDN_EXPORT scpcb_library_init(const GDNativeInterface *p_interface, const GDNativeExtensionClassLibraryPtr p_library, GDNativeInitialization *r_initialization) {
-	godot::GDExtensionBinding::InitObject init_obj(p_interface, p_library, r_initialization);
+	GDNativeBool GDN_EXPORT scpcb_library_init(const GDNativeInterface *p_interface, const GDNativeExtensionClassLibraryPtr p_library, GDNativeInitialization *r_initialization)
+	{
+		godot::GDExtensionBinding::InitObject init_obj(p_interface, p_library, r_initialization);
 
-	init_obj.register_initializer(initialize_scpcb_module);
-	init_obj.register_terminator(uninitialize_scpcb_module);
-	init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
+		init_obj.register_initializer(initialize_scpcb_module);
+		init_obj.register_terminator(uninitialize_scpcb_module);
+		init_obj.set_minimum_library_initialization_level(MODULE_INITIALIZATION_LEVEL_SCENE);
 
-	return init_obj.init();
-}
+		return init_obj.init();
+	}
 }
