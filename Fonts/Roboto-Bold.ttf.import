@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bfnwilay64fiu"
+uid="uid://cwxcu2dq5jbwq"
 path="res://.godot/imported/Roboto-Bold.ttf-9c2d03f3feeae6692f96e628d05213aa.fontdata"
 
 [deps]
@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Roboto-Bold.ttf-9c2d03f3feeae6692f96e628d0521
 Rendering=null
 antialiased=true
 generate_mipmaps=false
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 force_autohinter=false

@@ -11,7 +11,7 @@ func _on_interact():
 	pass
 
 func _get_interact_message() -> String:
-	if !door.can_interact():
+	if !door.can_open:
 		return "Door won't open."
 	return ""
 

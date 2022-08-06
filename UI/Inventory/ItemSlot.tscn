@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://djy01naqpp0r2"]
+
+[ext_resource type="Script" path="res://Scripts/ItemSlot.gd" id="1_6sjp0"]
+[ext_resource type="Texture2D" uid="uid://dfdb2qkrlqd7" path="res://icon.png" id="1_qgdy4"]
+[ext_resource type="FontFile" uid="uid://cwxcu2dq5jbwq" path="res://Fonts/Roboto-Bold.ttf" id="2_vga0q"]
+[ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="3_takiu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otwm0"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.352941, 0.352941, 0.352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksc62"]
+font = ExtResource("2_vga0q")
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vd5iq"]
+font = ExtResource("3_takiu")
+font_color = Color(0.541176, 0.541176, 0.541176, 1)
+shadow_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rmf1c"]
+font = ExtResource("3_takiu")
+font_size = 12
+font_color = Color(0.541176, 0.541176, 0.541176, 1)
+shadow_color = Color(1, 1, 1, 0)
+
+[node name="ItemSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 64)
+offset_right = 568.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_otwm0")
+script = ExtResource("1_6sjp0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 560.0
+offset_bottom = 72.0
+theme_override_constants/separation = 16
+
+[node name="ItemIcon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_qgdy4")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+offset_left = 80.0
+offset_right = 552.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset_right = 472.0
+offset_bottom = 19.0
+text = "Item Name"
+label_settings = SubResource("LabelSettings_ksc62")
+
+[node name="ItemDesc" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 23.0
+offset_right = 472.0
+offset_bottom = 42.0
+text = "Item Description"
+label_settings = SubResource("LabelSettings_vd5iq")
+
+[node name="ItemWeight" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+offset_top = 46.0
+offset_right = 472.0
+offset_bottom = 61.0
+text = "0.1 kg"
+label_settings = SubResource("LabelSettings_rmf1c")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 560.0
+offset_bottom = 72.0
+
+[connection signal="pressed" from="TextureButton" to="." method="on_button_pressed"]

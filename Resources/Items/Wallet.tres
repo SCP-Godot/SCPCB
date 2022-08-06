@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cd78pd4264h6u"]
+
+[ext_resource type="Resource" uid="uid://btdyp6induu1x" path="res://Resources/Items/Coin.tres" id="1_hq7b4"]
+[ext_resource type="Script" path="res://Scripts/AnWalletItem.gd" id="2_oalsv"]
+[ext_resource type="Texture2D" uid="uid://b12dg6yay5dkb" path="res://Textures/Items/INVwallet.jpg" id="2_rciel"]
+[ext_resource type="AudioStream" uid="uid://0st3iaj70op0" path="res://Sounds/Interact/PickItem3.ogg" id="4_y5k72"]
+
+[resource]
+script = ExtResource("2_oalsv")
+icon = ExtResource("2_rciel")
+use_sound = ExtResource("4_y5k72")
+name = "Wallet"
+description = "You can store money in that :)"
+weight = 0.3
+remove_after_use = false
+use_time = 0.0
+coin = ExtResource("1_hq7b4")
+max_uses = 10

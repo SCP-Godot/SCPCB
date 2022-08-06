@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://koef8hohwalh"]
+
+[ext_resource type="Texture2D" uid="uid://dfdb2qkrlqd7" path="res://icon.png" id="1_v6pvk"]
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_y4yej"]
+[ext_resource type="AudioStream" uid="uid://cmqia1lukkanu" path="res://Sounds/SCP/Joke/Saxophone.ogg" id="3_88nba"]
+
+[resource]
+script = ExtResource("1_y4yej")
+icon = ExtResource("1_v6pvk")
+use_sound = ExtResource("3_88nba")
+name = "New Item"
+description = "This is a cool new item!"
+weight = 0.1
+remove_after_use = false
+use_time = 0.0

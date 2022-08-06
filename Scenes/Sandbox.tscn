@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0akq63xas3gl"]
+[gd_scene load_steps=15 format=3 uid="uid://b0akq63xas3gl"]
 
 [ext_resource type="Material" uid="uid://cj6cva2btye5e" path="res://Materials/Concrete03.tres" id="1_d87w5"]
 [ext_resource type="PackedScene" uid="uid://bj4xwna1y203g" path="res://Scenes/Entities/Player.tscn" id="1_jlqqj"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://kwhcy55mkjfh" path="res://Textures/Materials/Concrete29/Concrete029_1K_AmbientOcclusion.jpg" id="3_kktnm"]
 [ext_resource type="PackedScene" uid="uid://x5wkisgd300n" path="res://Models/Props/ConstLamp/prop_constlamp.glb" id="4_d3a4k"]
 [ext_resource type="Texture2D" uid="uid://cigqv44hi8uwb" path="res://Textures/Materials/Concrete29/Concrete029_1K_NormalGL.jpg" id="4_dtmqc"]
-[ext_resource type="PackedScene" uid="uid://c65ateth04o4d" path="res://Scenes/AudioProbes/ReverbHuge.tscn" id="9_koft2"]
 [ext_resource type="PackedScene" uid="uid://b83x1d87vpt8j" path="res://Scenes/Interactables/Buttons/SaxButton.tscn" id="10_64bkd"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_wrj8s"]
@@ -54,7 +53,7 @@ shadow_enabled = true
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
 collision_mask = 0
-size = Vector3(16, 0.002, 16)
+size = Vector3(66, 0.002, 62)
 material = ExtResource("1_d87w5")
 
 [node name="Doorway" type="CSGCombiner3D" parent="."]
@@ -107,8 +106,5 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="prop_constlamp/StaticBody3D"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.920029, 0)
 shape = SubResource("CapsuleShape3D_hgwyq")
-
-[node name="ReverbHuge" parent="." instance=ExtResource("9_koft2")]
-transform = Transform3D(1.36817, 0, 0, 0, 1, 0, 0, 0, 1, 12.4452, 0.16417, -1.05254)
 
 [node name="SaxButton" parent="." instance=ExtResource("10_64bkd")]

@@ -9,8 +9,8 @@ enum State {
 	DEAD
 }
 
-const MAX_SPEED = 5
-const SPRINT_SPEED = 5
+var MAX_SPEED = 5
+var SPRINT_SPEED = 5
 const WALK_SPEED = 3.5
 const JUMP_VELOCITY = 4.5
 const ACCELERATION = 3
@@ -49,6 +49,8 @@ func _ready():
 	camera = $RotationHelper/Camera3D
 	rot_helper = $RotationHelper
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	%InventoryUI.set_inventory($Inventory)
 	pass
 
 func process_input(delta: float):
@@ -135,14 +137,11 @@ func _physics_process(delta):
 	
 func _input(event):
 	rotate_helper(event)
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	if Input.is_action_just_pressed("interact"):
 		handle_interact()
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		Controls.toggle_cursor()
 	pass
 
 func handle_interact():
@@ -207,7 +206,8 @@ func toggle_sprint(enabled: bool):
 	pass
 
 func show_message(message: String):
-	
+	%MessageLabel.text = "[center]" + message
+	%MessageAnimationPlayer.play("show")
 	pass
 	
 func regen_stamina(delta: float):

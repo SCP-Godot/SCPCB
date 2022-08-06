@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2qcgd3bveucs"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_2i7tp"]
+[ext_resource type="Texture2D" uid="uid://dhmbmqprc3c3y" path="res://Textures/Items/INVfirstaid.jpg" id="1_ehia4"]
+
+[resource]
+script = ExtResource("1_2i7tp")
+icon = ExtResource("1_ehia4")
+name = "Medkit"
+description = "First aid yay"
+weight = 1.0
+remove_after_use = false
+use_time = 0.0

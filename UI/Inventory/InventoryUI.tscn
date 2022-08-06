@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bau6rbx2c7k7b"]
+
+[ext_resource type="Script" path="res://Scripts/InventoryUI.gd" id="1_5qgph"]
+[ext_resource type="PackedScene" uid="uid://djy01naqpp0r2" path="res://UI/Inventory/ItemSlot.tscn" id="2_fnmm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_707rj"]
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="InventoryUI" type="CenterContainer"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1856.0
+offset_bottom = 1016.0
+script = ExtResource("1_5qgph")
+item_slot_scene = ExtResource("2_fnmm0")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(600, 800)
+offset_left = 596.0
+offset_top = 76.0
+offset_right = 1196.0
+offset_bottom = 876.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_707rj")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+offset_right = 600.0
+offset_bottom = 800.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 584.0
+offset_bottom = 784.0
+
+[node name="ItemSlotContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+offset_right = 568.0
+offset_bottom = 768.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16

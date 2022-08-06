@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c4byui06r3o00"]
+
+[ext_resource type="Texture2D" uid="uid://i7djwtb1wyp" path="res://Textures/Items/INVcup.jpg" id="1_bxreh"]
+[ext_resource type="Script" path="res://Scripts/SCP207Item.gd" id="2_xousp"]
+[ext_resource type="AudioStream" uid="uid://cv6h34nilmay3" path="res://Sounds/SCP/294/ahh.ogg" id="3_venrp"]
+
+[resource]
+script = ExtResource("2_xousp")
+icon = ExtResource("1_bxreh")
+use_sound = ExtResource("3_venrp")
+name = "SCP-207"
+description = "ColaAAAaa!!!"
+weight = 1.0
+remove_after_use = true
+use_time = 1.5

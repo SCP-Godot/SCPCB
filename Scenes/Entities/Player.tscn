@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bj4xwna1y203g"]
+[gd_scene load_steps=27 format=3 uid="uid://bj4xwna1y203g"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
@@ -10,10 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://col0drvgk8a1p" path="res://Textures/handsymbol.png" id="8_ssesy"]
 [ext_resource type="Script" path="res://Scripts/InteractIcon.gd" id="9_pdnxj"]
 [ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="10_bghgm"]
+[ext_resource type="PackedScene" uid="uid://bau6rbx2c7k7b" path="res://UI/Inventory/InventoryUI.tscn" id="11_p3hu3"]
 [ext_resource type="AudioStream" uid="uid://bdpf0sbwdcjdg" path="res://Resources/Footsteps/FootstepsConcreteNew.tres" id="12_tviqj"]
 [ext_resource type="AudioStream" uid="uid://cu6t0t4l0wlr3" path="res://Resources/Footsteps/FootstepsConcreteRunNew.tres" id="13_l7guh"]
 [ext_resource type="Script" path="res://Scripts/ViewmodelRoot.gd" id="14_0bw8x"]
+[ext_resource type="Script" path="res://Scripts/Inventory.gd" id="15_02hbf"]
+[ext_resource type="Resource" uid="uid://d2qcgd3bveucs" path="res://Resources/Items/Medkit.tres" id="18_75wbt"]
+[ext_resource type="Resource" uid="uid://c4byui06r3o00" path="res://Resources/Items/SCP207.tres" id="19_0mgc7"]
 [ext_resource type="AudioStream" uid="uid://bv1ecf5lpk18d" path="res://Sounds/D9341/breath0.ogg" id="19_u2ce7"]
+[ext_resource type="Resource" uid="uid://cd78pd4264h6u" path="res://Resources/Items/Wallet.tres" id="20_2jp7m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vtsqa"]
 radius = 0.265769
@@ -33,7 +38,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/path = NodePath("MessageLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,17 +50,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ndxxj"]
 resource_name = "show"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/path = NodePath("MessageLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rg0yj"]
@@ -173,32 +179,37 @@ anchor_bottom = 1.0
 nine_patch_stretch = true
 
 [node name="Message" type="MarginContainer" parent="UI"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 300)
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -960.0
-offset_top = 50.0
+offset_top = -100.0
 offset_right = 960.0
-offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Message"]
+[node name="MessageLabel" type="RichTextLabel" parent="UI/Message"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
-offset_bottom = 100.0
+offset_bottom = 300.0
 theme_override_fonts/normal_font = ExtResource("10_bghgm")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[center]Door won't open."
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Message"]
+[node name="MessageAnimationPlayer" type="AnimationPlayer" parent="UI/Message"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_rg0yj")
 }
+
+[node name="InventoryUI" parent="UI" instance=ExtResource("11_p3hu3")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Viewmodel" type="Node" parent="."]
 
@@ -238,3 +249,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8377, 0)
 stream = ExtResource("19_u2ce7")
 panning_strength = 0.0
 bus = &"SFX"
+
+[node name="ItemSfx" type="AudioStreamPlayer3D" parent="SFX"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83316, 0)
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("15_02hbf")
+items = [ExtResource("18_75wbt"), ExtResource("19_0mgc7"), ExtResource("20_2jp7m")]

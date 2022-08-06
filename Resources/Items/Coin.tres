@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://btdyp6induu1x"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_73hhy"]
+[ext_resource type="Texture2D" uid="uid://ysvxl7w7mf7" path="res://Textures/Items/INVcoin.jpg" id="1_ixds3"]
+
+[resource]
+script = ExtResource("1_73hhy")
+icon = ExtResource("1_ixds3")
+name = "Coin"
+description = "That's a lot of money!"
+weight = 0.05
+remove_after_use = false
+use_time = 0.0
