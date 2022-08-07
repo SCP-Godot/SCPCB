@@ -104,11 +104,3 @@ fov = 60.0
 stream = ExtResource("15_7f16p")
 autoplay = true
 bus = &"Ambience"
-
-[node name="Example" type="Example" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Example"]
-offset_right = 40.0
-offset_bottom = 23.0
