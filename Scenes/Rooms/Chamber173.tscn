@@ -263,7 +263,6 @@ omni_range = 28.617
 [node name="LightmapGI" type="LightmapGI" parent="."]
 quality = 3
 interior = true
-environment_mode = 1
 generate_probes_subdiv = 3
 light_data = ExtResource("2_dfx7s")
 

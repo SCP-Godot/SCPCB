@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Roboto-Regular.ttf-53299d412e710e22f7b066c657
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=true
 msdf_pixel_range=8

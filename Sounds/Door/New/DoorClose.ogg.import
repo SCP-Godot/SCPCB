@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://hvo4add81xou"
 path="res://.godot/imported/DoorClose.ogg-6df67d79170302a5eca90eee41839e62.oggvorbisstr"
 

@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://dwsr3xkvub2fk"
 path="res://.godot/imported/NeckSnap3.ogg-a307b2055331ede8b3fe3b171ee6002c.oggvorbisstr"
 

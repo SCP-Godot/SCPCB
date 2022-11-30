@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://cl4xd4b8evr6t"
 path="res://.godot/imported/Run7.ogg-f7e053f3516b6cfd29dfb326fcb26c30.oggvorbisstr"
 

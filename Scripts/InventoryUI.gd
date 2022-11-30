@@ -33,7 +33,7 @@ func add_item_ui(item: Item):
 	pass
 	
 func remove_item_idx(idx: int):
-	print("removing slot at " + idx)
+	print("removing slot at " + str(idx))
 	var slot = %ItemSlotContainer.get_children()[idx]
 	slot.queue_free()
 	

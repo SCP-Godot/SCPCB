@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Roboto-Light.ttf-74261d5dead352799d5561fe9f66
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8

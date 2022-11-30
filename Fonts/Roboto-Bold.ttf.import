@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Roboto-Bold.ttf-9c2d03f3feeae6692f96e628d0521
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=true
 msdf_pixel_range=8

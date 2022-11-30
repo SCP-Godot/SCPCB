@@ -25,10 +25,10 @@ The project is still in it's infancy, with many features missing.
 - Various SCP items.
 
 ### Technical details
-- Engine version: `4.0.alpha13`.
+- Engine version: `4.0.beta6`.
 - Programming language of choice: **GDScript**, with some systems being written in **C++**.
 
 ## Building and running
-To build the project, download the [Godot](https://godotengine.org/article/dev-snapshot-godot-4-0-alpha-13) engine and clone the repository to the directory of choice. After completing these steps, opening the project is just a matter of including the project folder in the project inspector.
+To build the project, download the [Godot](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-6) engine and clone the repository to the directory of choice. After completing these steps, opening the project is just a matter of including the project folder in the project inspector.
 
 *CI/CD is being planned to be used to automate releases.*
