@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://do4hi2qlrrps5"]
 
 [ext_resource type="Script" path="res://Scripts/StaticCollider.gd" id="2_btysi"]
-[ext_resource type="Resource" uid="uid://cglgl4q7l4yf" path="res://Resources/Footsteps/FootstepsConcrete.tres" id="3_3n8mx"]
+[ext_resource type="AudioStream" uid="uid://cglgl4q7l4yf" path="res://Resources/Footsteps/FootstepsConcrete.tres" id="3_3n8mx"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n77ce"]
 
@@ -111,7 +111,6 @@ spot_angle = 54.85
 quality = 2
 bounces = 4
 interior = true
-environment_mode = 1
 generate_probes_subdiv = 3
 script = ExtResource("2_btysi")
 footstep_resource = ExtResource("3_3n8mx")

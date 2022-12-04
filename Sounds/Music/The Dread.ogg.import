@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://ciyhiq8jaaxeu"
 path="res://.godot/imported/The Dread.ogg-335d200c6af6ab0688814575bf9cddc0.oggvorbisstr"
 

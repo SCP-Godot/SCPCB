@@ -19,9 +19,9 @@ func _physics_process(delta):
 		process_bob(delta)
 
 	if player.current_state == player.State.RUNNING:
-		fov = lerp(fov, 80, delta * zoom_speed)
+		fov = lerp(fov, 80.0, delta * zoom_speed)
 	else:
-		fov = lerp(fov, 75, delta * zoom_speed)
+		fov = lerp(fov, 75.0, delta * zoom_speed)
 		
 	
 func process_bob(delta):

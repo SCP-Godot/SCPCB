@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://cmqia1lukkanu"
 path="res://.godot/imported/Saxophone.ogg-0b4ad6cf585fbc298740a2eb2ea9521e.oggvorbisstr"
 

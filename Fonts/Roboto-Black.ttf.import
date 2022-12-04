@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Roboto-Black.ttf-190cdf5d99c554d9f3ee32d11ef3
 [params]
 
 Rendering=null
-antialiased=true
+antialiasing=1
 generate_mipmaps=false
 multichannel_signed_distance_field=true
 msdf_pixel_range=8

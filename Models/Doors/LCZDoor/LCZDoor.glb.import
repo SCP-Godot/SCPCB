@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/LCZDoor.glb-08e3f5fa22758c5ffd2e2fdb6a8d1360.
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true

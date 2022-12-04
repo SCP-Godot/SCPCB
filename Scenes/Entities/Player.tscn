@@ -28,12 +28,10 @@ radius = 0.265769
 
 [sub_resource type="LabelSettings" id="LabelSettings_i48im"]
 font = ExtResource("2_brnob")
-shadow_color = Color(0, 0, 0, 0)
 shadow_offset = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0eahu"]
 font = ExtResource("5_ujs62")
-shadow_color = Color(0, 0, 0, 0)
 shadow_offset = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uflk"]
@@ -153,8 +151,12 @@ spot_range = 17.9379
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.88524, 0)
 
 [node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InteractIcon" type="Sprite2D" parent="UI"]
 visible = false
@@ -163,13 +165,19 @@ script = ExtResource("9_pdnxj")
 
 [node name="Blink" type="ColorRect" parent="UI"]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Overlay" type="MarginContainer" parent="UI"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -200,8 +208,11 @@ vertical_alignment = 2
 script = ExtResource("5_34xk0")
 
 [node name="HUD" type="MarginContainer" parent="UI"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
@@ -236,24 +247,30 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7uflk")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer"]
 show_behind_parent = true
 custom_minimum_size = Vector2(300, 30)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 value = 100.0
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_mevuu")
 texture_progress = SubResource("GradientTexture1D_lgedn")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 0
 
 [node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar/MarginContainer"]
 offset_left = 8.0
-offset_top = 5.0
+offset_top = 4.0
 offset_right = 300.0
-offset_bottom = 24.0
+offset_bottom = 26.0
 text = "100%"
 label_settings = SubResource("LabelSettings_i22x1")
 horizontal_alignment = 1
@@ -279,30 +296,37 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_553u0")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer"]
 show_behind_parent = true
 custom_minimum_size = Vector2(300, 30)
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 value = 100.0
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_mevuu")
 texture_progress = SubResource("GradientTexture1D_s42jo")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 0
 
 [node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar/MarginContainer"]
 offset_left = 8.0
-offset_top = 5.0
+offset_top = 4.0
 offset_right = 300.0
-offset_bottom = 24.0
+offset_bottom = 26.0
 text = "100%"
 label_settings = SubResource("LabelSettings_i22x1")
 horizontal_alignment = 1
 
 [node name="Message" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 300)
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -333,6 +357,10 @@ libraries = {
 [node name="InventoryUI" parent="UI" instance=ExtResource("11_p3hu3")]
 unique_name_in_owner = true
 visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1792.0
+offset_bottom = 952.0
 
 [node name="Viewmodel" type="Node" parent="."]
 
