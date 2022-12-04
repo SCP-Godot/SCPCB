@@ -16,7 +16,7 @@ The project is still in it's infancy, with many features missing.
 - Player character with blinking and health mechanics.
 - Inventory system.
 - Port most of Light Containment Zone rooms from Blitz3D to Godot.
-- Room generation (C++, through GDExtension).
+- Room generation ~~(C++, through GDExtension)~~ (see: [Technical details](https://github.com/SCP-Godot/SCPCB#technical-details)).
 - Hostile SCPs:
     - SCP-173
     - SCP-049
@@ -26,7 +26,7 @@ The project is still in it's infancy, with many features missing.
 
 ### Technical details
 - Engine version: `4.0.beta6`.
-- Programming language of choice: **GDScript**, with some systems being written in **C++**.
+- Programming language of choice: **GDScript**, with some systems being written in ~~**C++**~~ [C#](https://github.com/SCP-Godot/SCPCB/issues/2).
 
 ## Building and running
 To build the project, download the [Godot](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-6) engine and clone the repository to the directory of choice. After completing these steps, opening the project is just a matter of including the project folder in the project inspector.
