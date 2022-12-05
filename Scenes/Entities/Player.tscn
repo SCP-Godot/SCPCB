@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2twy3px74q7e"]
+[gd_scene load_steps=33 format=3 uid="uid://c2twy3px74q7e"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="10_bghgm"]
 [ext_resource type="PackedScene" uid="uid://bgu2072r7r7ah" path="res://UI/Bar/BlinkBar.tscn" id="10_vddc2"]
 [ext_resource type="PackedScene" uid="uid://bd3u2d10j5kqb" path="res://UI/Bar/SprintBar.tscn" id="11_5g17p"]
+[ext_resource type="Script" path="res://UI/Bar/BlinkBar.gd" id="11_hn07j"]
 [ext_resource type="PackedScene" uid="uid://bau6rbx2c7k7b" path="res://UI/Inventory/InventoryUI.tscn" id="11_p3hu3"]
 [ext_resource type="AudioStream" uid="uid://bdpf0sbwdcjdg" path="res://Resources/Footsteps/FootstepsConcreteNew.tres" id="12_tviqj"]
 [ext_resource type="AudioStream" uid="uid://cu6t0t4l0wlr3" path="res://Resources/Footsteps/FootstepsConcreteRunNew.tres" id="13_l7guh"]
@@ -223,11 +224,13 @@ offset_bottom = 1016.0
 theme_override_constants/separation = 8
 alignment = 2
 
-[node name="BlinkBar" parent="UI/HUD/VBoxContainer" instance=ExtResource("10_vddc2")]
+[node name="BlinkBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("10_vddc2")]
 layout_mode = 2
 offset_top = 884.0
 offset_right = 1792.0
 offset_bottom = 914.0
+script = ExtResource("11_hn07j")
+player = NodePath("../../../..")
 
 [node name="SprintBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("11_5g17p")]
 layout_mode = 2
