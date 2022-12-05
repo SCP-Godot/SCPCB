@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg0s2uu7u70r5"]
+
+[ext_resource type="Script" path="res://Scripts/UIBar.gd" id="1_0fix8"]
+[ext_resource type="FontFile" uid="uid://cwxcu2dq5jbwq" path="res://Fonts/Roboto-Bold.ttf" id="3_1ycy5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6m5sy"]
+width = 30
+height = 30
+generate_mipmaps = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_553u0"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.317647, 0.384314, 0.490196, 1)
+border_blend = true
+shadow_color = Color(0.423529, 0.545098, 0.588235, 0.219608)
+shadow_size = 2
+
+[sub_resource type="Gradient" id="Gradient_fhu3p"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mevuu"]
+gradient = SubResource("Gradient_fhu3p")
+
+[sub_resource type="Gradient" id="Gradient_723aq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tnsc7"]
+gradient = SubResource("Gradient_723aq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i22x1"]
+font = ExtResource("3_1ycy5")
+shadow_color = Color(1, 1, 1, 0)
+shadow_offset = Vector2(0, 0)
+
+[node name="Bar" type="HBoxContainer"]
+offset_top = 922.0
+offset_right = 334.0
+offset_bottom = 952.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 30.0
+offset_bottom = 30.0
+texture = SubResource("NoiseTexture2D_6m5sy")
+stretch_mode = 2
+
+[node name="PanelContainer" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 30)
+offset_left = 34.0
+offset_right = 334.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_553u0")
+script = ExtResource("1_0fix8")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(300, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_mevuu")
+texture_progress = SubResource("GradientTexture1D_tnsc7")
+radial_center_offset = Vector2(11, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TextureProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 0
+
+[node name="Label" type="Label" parent="PanelContainer/TextureProgressBar/MarginContainer"]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 300.0
+offset_bottom = 26.0
+text = "100%"
+label_settings = SubResource("LabelSettings_i22x1")
+horizontal_alignment = 1

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd3u2d10j5kqb"]
+
+[ext_resource type="PackedScene" uid="uid://cg0s2uu7u70r5" path="res://UI/Bar/Bar.tscn" id="1_apuei"]
+[ext_resource type="Script" path="res://Scripts/StaminaBar.gd" id="2_2iyum"]
+[ext_resource type="Texture2D" uid="uid://cb5uegsjv4e1r" path="res://Textures/sprinticon.png" id="2_n2oxn"]
+[ext_resource type="Texture2D" path="res://UI/Bar/SprintGradient1D.tres" id="3_w1m6v"]
+
+[node name="SprintBar" instance=ExtResource("1_apuei")]
+script = ExtResource("2_2iyum")
+
+[node name="TextureRect" parent="." index="0"]
+layout_mode = 3
+texture = ExtResource("2_n2oxn")
+
+[node name="PanelContainer" parent="." index="1"]
+layout_mode = 3
+
+[node name="TextureProgressBar" parent="PanelContainer" index="0"]
+layout_mode = 3
+texture_progress = ExtResource("3_w1m6v")
+
+[node name="MarginContainer" parent="PanelContainer/TextureProgressBar" index="0"]
+layout_mode = 3
+
+[node name="Label" parent="PanelContainer/TextureProgressBar/MarginContainer" index="0"]
+layout_mode = 3
