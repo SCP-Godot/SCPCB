@@ -122,7 +122,7 @@ radius = 1.11421
 
 [sub_resource type="Animation" id="Animation_0auj1"]
 resource_name = "blink"
-length = 0.5
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,10 +130,10 @@ tracks/0/path = NodePath("UI/Blink:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_xbyu4"]
