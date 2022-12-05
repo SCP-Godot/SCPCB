@@ -45,6 +45,13 @@ var closest_interactable: Node3D
 @export var stamina_threshold: float = 0.45
 var stamina_regenerating = false
 
+@export var blink_timer: float = 1.0
+@export var max_blink: float = 1.0
+@export var blink_deplete_rate: float = 0.1
+@onready var blink_overlay: ColorRect = $UI/Blink
+
+@onready var animation_player = $AnimationPlayer
+
 func _ready():
 	camera = $RotationHelper/Camera3D
 	rot_helper = $RotationHelper
@@ -117,6 +124,7 @@ func rotate_helper(event: InputEvent):
 
 func _process(delta: float):
 	process_input(delta)
+	process_blink(delta)
 	regen_stamina(delta)
 	deplete_stamina(delta)
 	pass
@@ -236,6 +244,16 @@ func check_stamina():
 	if stamina <= 0.0:
 		start_walking()
 	pass
+
+func process_blink(delta: float):
+	if blink_timer <= 0.0:
+		blink_timer = max_blink
+		blink()
+	else:
+		blink_timer -= blink_deplete_rate * delta
+	
+func blink():
+	animation_player.play("blink")
 
 func start_running():
 	current_state = State.RUNNING
