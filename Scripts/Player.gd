@@ -75,6 +75,9 @@ func process_input(delta: float):
 		input_vector.x -= 1
 	if Input.is_action_pressed("move_right"):
 		input_vector.x += 1
+		
+	if Input.is_action_just_pressed("blink"):
+		blink()
 	
 	# If the player inputs movement actions.
 	if input_vector.length() > 0:
@@ -247,12 +250,12 @@ func check_stamina():
 
 func process_blink(delta: float):
 	if blink_timer <= 0.0:
-		blink_timer = max_blink
 		blink()
 	else:
 		blink_timer -= blink_deplete_rate * delta
 	
 func blink():
+	blink_timer = max_blink
 	animation_player.play("blink")
 
 func start_running():
