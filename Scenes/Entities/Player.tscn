@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c2twy3px74q7e"]
+[gd_scene load_steps=30 format=3 uid="uid://bj4xwna1y203g"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
@@ -74,43 +74,6 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_jlepi"]
 radius = 1.11421
 
-[sub_resource type="Animation" id="Animation_xbyu4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Blink:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_0auj1"]
-resource_name = "blink"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Blink:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4j2d3"]
-_data = {
-"RESET": SubResource("Animation_xbyu4"),
-"blink": SubResource("Animation_0auj1")
-}
-
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ua1i3")
 stamina_deplete_rate = 0.1
@@ -156,7 +119,6 @@ script = ExtResource("9_pdnxj")
 
 [node name="Blink" type="ColorRect" parent="UI"]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -165,7 +127,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Overlay" type="MarginContainer" parent="UI"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -177,14 +138,12 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Overlay"]
-layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 1904.0
 offset_bottom = 1064.0
 
 [node name="FPSLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
-layout_mode = 2
 offset_right = 1888.0
 offset_bottom = 522.0
 size_flags_vertical = 3
@@ -193,7 +152,6 @@ label_settings = SubResource("LabelSettings_i48im")
 script = ExtResource("3_3g66n")
 
 [node name="EngineInfoLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
-layout_mode = 2
 offset_top = 526.0
 offset_right = 1888.0
 offset_bottom = 1048.0
@@ -204,7 +162,6 @@ vertical_alignment = 2
 script = ExtResource("5_34xk0")
 
 [node name="HUD" type="MarginContainer" parent="UI"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -216,7 +173,6 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD"]
-layout_mode = 2
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 1856.0
@@ -225,7 +181,6 @@ theme_override_constants/separation = 8
 alignment = 2
 
 [node name="BlinkBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("10_vddc2")]
-layout_mode = 2
 offset_top = 884.0
 offset_right = 1792.0
 offset_bottom = 914.0
@@ -233,13 +188,11 @@ script = ExtResource("11_hn07j")
 player = NodePath("../../../..")
 
 [node name="SprintBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("11_5g17p")]
-layout_mode = 2
 offset_right = 1792.0
 player = NodePath("../../../..")
 
 [node name="Message" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 300)
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -255,7 +208,6 @@ metadata/_edit_layout_mode = 1
 [node name="MessageLabel" type="RichTextLabel" parent="UI/Message"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 300.0
 theme_override_fonts/normal_font = ExtResource("10_bghgm")
@@ -272,7 +224,6 @@ libraries = {
 [node name="InventoryUI" parent="UI" instance=ExtResource("11_p3hu3")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1792.0
@@ -326,8 +277,3 @@ bus = &"SFX"
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("15_02hbf")
 items = [ExtResource("18_75wbt"), ExtResource("19_0mgc7"), ExtResource("20_2jp7m")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_4j2d3")
-}

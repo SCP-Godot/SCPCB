@@ -50,7 +50,7 @@ var stamina_regenerating = false
 @export var blink_deplete_rate: float = 0.1
 @onready var blink_overlay: ColorRect = $UI/Blink
 
-@onready var animation_player = $AnimationPlayer
+@onready var blink_ui = $UI/Blink
 
 func _ready():
 	camera = $RotationHelper/Camera3D
@@ -77,7 +77,10 @@ func process_input(delta: float):
 		input_vector.x += 1
 		
 	if Input.is_action_just_pressed("blink"):
-		blink()
+		close_eyes()
+	else: 
+		if Input.is_action_just_released("blink"):
+			open_eyes()
 	
 	# If the player inputs movement actions.
 	if input_vector.length() > 0:
@@ -253,10 +256,18 @@ func process_blink(delta: float):
 		blink()
 	else:
 		blink_timer -= blink_deplete_rate * delta
-	
+
 func blink():
+	close_eyes()
+	await get_tree().create_timer(0.1).timeout	
+	open_eyes()
+	
+func close_eyes():
 	blink_timer = max_blink
-	animation_player.play("blink")
+	blink_ui.visible = true
+
+func open_eyes():
+	blink_ui.visible = false
 
 func start_running():
 	current_state = State.RUNNING

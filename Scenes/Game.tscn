@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://db24n3ets7uc6"]
 
 [ext_resource type="PackedScene" uid="uid://4sk2yu3uykaf" path="res://Scenes/Rooms/Chamber173.tscn" id="1_lj0jw"]
-[ext_resource type="PackedScene" uid="uid://c2twy3px74q7e" path="res://Scenes/Entities/Player.tscn" id="2_x5b53"]
+[ext_resource type="PackedScene" uid="uid://bj4xwna1y203g" path="res://Scenes/Entities/Player.tscn" id="2_x5b53"]
 [ext_resource type="AudioStream" uid="uid://ciyhiq8jaaxeu" path="res://Sounds/Music/The Dread.ogg" id="4_2t25p"]
 [ext_resource type="AudioStream" uid="uid://0wffud06r2tn" path="res://Sounds/Ambience/General/Ambient5.ogg" id="5_50el5"]
 [ext_resource type="AudioStream" uid="uid://dph7frsskc0ln" path="res://Sounds/Ambience/Zone1/Ambient2.ogg" id="5_skhyp"]
