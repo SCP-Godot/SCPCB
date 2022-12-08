@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bj4xwna1y203g"]
+[gd_scene load_steps=39 format=3 uid="uid://bj4xwna1y203g"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
@@ -119,43 +119,6 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jlepi"]
 radius = 1.11421
-
-[sub_resource type="Animation" id="Animation_0auj1"]
-resource_name = "blink"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Blink:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_xbyu4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Blink:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4j2d3"]
-_data = {
-"RESET": SubResource("Animation_xbyu4"),
-"blink": SubResource("Animation_0auj1")
-}
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ua1i3")
@@ -469,8 +432,3 @@ bus = &"SFX"
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("15_02hbf")
 items = [ExtResource("18_75wbt"), ExtResource("19_0mgc7"), ExtResource("20_2jp7m")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_4j2d3")
-}
