@@ -48,6 +48,7 @@ var stamina_regenerating = false
 @export var blink_timer: float = 1.0
 @export var max_blink: float = 1.0
 @export var blink_deplete_rate: float = 0.1
+var blink_current_deplete_rate = blink_deplete_rate
 @onready var blink_overlay: ColorRect = $UI/Blink
 
 @onready var blink_ui = $UI/Blink
@@ -255,7 +256,7 @@ func process_blink(delta: float):
 	if blink_timer <= 0.0:
 		blink()
 	else:
-		blink_timer -= blink_deplete_rate * delta
+		blink_timer -= blink_current_deplete_rate * delta
 
 func blink():
 	close_eyes()
@@ -263,10 +264,13 @@ func blink():
 	open_eyes()
 	
 func close_eyes():
-	blink_timer = max_blink
+	
 	blink_ui.visible = true
+	blink_current_deplete_rate = 0.0
+	blink_timer = max_blink
 
 func open_eyes():
+	blink_current_deplete_rate = blink_deplete_rate
 	blink_ui.visible = false
 
 func start_running():
