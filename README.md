@@ -29,6 +29,6 @@ The project is still in it's infancy, with many features missing.
 - Programming language of choice: **GDScript**, with some systems being written in ~~**C++**~~ [C#](https://github.com/SCP-Godot/SCPCB/issues/2).
 
 ## Building and running
-To build the project, download the [Godot](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-6) engine and clone the repository to the directory of choice. After completing these steps, opening the project is just a matter of including the project folder in the project inspector.
+To build the project, download the .NET version of the [Godot](https://godotengine.org/article/dev-snapshot-godot-4-0-beta-6) engine and clone the repository to the directory of choice. After completing these steps, opening the project is just a matter of including the project folder in the project inspector.
 
 *CI/CD is being planned to be used to automate releases.*
