@@ -26,7 +26,7 @@ var rot_helper: Node3D
 
 @export var mouse_sensitivity: float = 0.08
 @export var footstep_delay: float = 0.6
-
+var max_camera_angle_x: float = 90.0
 @export var current_state: State = State.IDLE
 
 var footstep_timer: float = 0.0
@@ -59,15 +59,7 @@ func process_input(delta: float):
 	var cam_transform = camera.global_transform
 	
 	var input_vector = Vector2()
-	
-	if Input.is_action_pressed("move_forward"):
-		input_vector.y += 1
-	if Input.is_action_pressed("move_backward"):
-		input_vector.y -= 1
-	if Input.is_action_pressed("move_left"):
-		input_vector.x -= 1
-	if Input.is_action_pressed("move_right"):
-		input_vector.x += 1
+	input_vector = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
 	# If the player inputs movement actions.
 	if input_vector.length() > 0:
@@ -77,10 +69,8 @@ func process_input(delta: float):
 		
 	toggle_sprint(Input.is_action_pressed("sprint"))
 	
-	input_vector = input_vector.normalized()
-	
-	direction += -cam_transform.basis.z * input_vector.y
-	direction += cam_transform.basis.x * input_vector.x
+	direction = cam_transform.basis * Vector3(input_vector.x, 0, input_vector.y)
+	direction = direction.normalized()
 	
 
 func process_movement(delta: float):
@@ -112,7 +102,7 @@ func rotate_helper(event: InputEvent):
 		self.rotate_y(deg_to_rad(event.relative.x * mouse_sensitivity * -1))
 		
 		var camera_rot = rot_helper.rotation
-		camera_rot.x = clamp(camera_rot.x, -70, 70)
+		camera_rot.x = clamp(camera_rot.x, deg_to_rad(-max_camera_angle_x), deg_to_rad(max_camera_angle_x))
 		rot_helper.rotation = camera_rot
 
 func _process(delta: float):

@@ -165,6 +165,7 @@ script = ExtResource("9_pdnxj")
 
 [node name="Blink" type="ColorRect" parent="UI"]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -173,6 +174,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Overlay" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -184,12 +186,14 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Overlay"]
+layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 1904.0
 offset_bottom = 1064.0
 
 [node name="FPSLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
+layout_mode = 2
 offset_right = 1888.0
 offset_bottom = 522.0
 size_flags_vertical = 3
@@ -198,6 +202,7 @@ label_settings = SubResource("LabelSettings_i48im")
 script = ExtResource("3_3g66n")
 
 [node name="EngineInfoLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
+layout_mode = 2
 offset_top = 526.0
 offset_right = 1888.0
 offset_bottom = 1048.0
@@ -208,6 +213,7 @@ vertical_alignment = 2
 script = ExtResource("5_34xk0")
 
 [node name="HUD" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -219,6 +225,7 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD"]
+layout_mode = 2
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 1856.0
@@ -227,11 +234,13 @@ theme_override_constants/separation = 8
 alignment = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="UI/HUD/VBoxContainer"]
+layout_mode = 2
 offset_top = 884.0
 offset_right = 1792.0
 offset_bottom = 914.0
 
 [node name="TextureRect" type="TextureRect" parent="UI/HUD/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
 offset_right = 30.0
 offset_bottom = 30.0
 texture = ExtResource("10_8wtyg")
@@ -239,6 +248,7 @@ stretch_mode = 2
 
 [node name="PanelContainer" type="Panel" parent="UI/HUD/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
 offset_left = 34.0
 offset_right = 334.0
 offset_bottom = 30.0
@@ -247,6 +257,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7uflk")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer"]
 show_behind_parent = true
 custom_minimum_size = Vector2(300, 30)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -258,6 +269,7 @@ texture_under = SubResource("GradientTexture1D_mevuu")
 texture_progress = SubResource("GradientTexture1D_lgedn")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -267,6 +279,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 0
 
 [node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar/MarginContainer"]
+layout_mode = 2
 offset_left = 8.0
 offset_top = 4.0
 offset_right = 300.0
@@ -276,11 +289,13 @@ label_settings = SubResource("LabelSettings_i22x1")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer"]
+layout_mode = 2
 offset_top = 922.0
 offset_right = 1792.0
 offset_bottom = 952.0
 
 [node name="TextureRect" type="TextureRect" parent="UI/HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 offset_right = 30.0
 offset_bottom = 30.0
 texture = ExtResource("10_wt7a7")
@@ -288,6 +303,7 @@ stretch_mode = 2
 
 [node name="PanelContainer" type="Panel" parent="UI/HUD/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
 offset_left = 34.0
 offset_right = 334.0
 offset_bottom = 30.0
@@ -296,6 +312,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_553u0")
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer"]
 show_behind_parent = true
 custom_minimum_size = Vector2(300, 30)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -307,6 +324,7 @@ texture_under = SubResource("GradientTexture1D_mevuu")
 texture_progress = SubResource("GradientTexture1D_s42jo")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -316,6 +334,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 0
 
 [node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar/MarginContainer"]
+layout_mode = 2
 offset_left = 8.0
 offset_top = 4.0
 offset_right = 300.0
@@ -326,6 +345,7 @@ horizontal_alignment = 1
 
 [node name="Message" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -341,6 +361,7 @@ metadata/_edit_layout_mode = 1
 [node name="MessageLabel" type="RichTextLabel" parent="UI/Message"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 300.0
 theme_override_fonts/normal_font = ExtResource("10_bghgm")
@@ -357,6 +378,7 @@ libraries = {
 [node name="InventoryUI" parent="UI" instance=ExtResource("11_p3hu3")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1792.0

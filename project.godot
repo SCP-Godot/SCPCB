@@ -40,18 +40,23 @@ _global_script_class_icons={
 
 config/name="SCPCB"
 run/main_scene="res://Scenes/Game.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.0", "C#")
 config/icon="res://icon.png"
 
 [autoload]
 
 Controls="*res://Scripts/Controls.gd"
+TestAutoload="*res://Source/SCPCB/TestAutoload.cs"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/fullscreen=true
+
+[dotnet]
+
+project/assembly_name="SCPCB"
 
 [editor]
 
