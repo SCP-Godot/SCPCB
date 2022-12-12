@@ -1,8 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "Disabled",
-    "files.associations": {
-        "Cookiefile": "toml",
-        "*.fsh": "glsl",
-        "typeinfo": "cpp"
-    }
-}
