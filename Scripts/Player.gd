@@ -44,6 +44,17 @@ var closest_interactable: Node3D
 @export var stamina_regen_rate: float = 0.001
 @export var stamina_threshold: float = 0.45
 var stamina_regenerating = false
+signal stamina_changed(new_value: float)
+
+@export var blink_timer: float = 1.0
+@export var max_blink: float = 1.0
+@export var blink_deplete_rate: float = 0.1
+var blink_current_deplete_rate = blink_deplete_rate
+signal blink_changed(new_value: float)
+signal eyes_closed
+signal eyes_opened
+
+
 
 func _ready():
 	camera = $RotationHelper/Camera3D
@@ -68,6 +79,12 @@ func process_input(delta: float):
 		input_vector.x -= 1
 	if Input.is_action_pressed("move_right"):
 		input_vector.x += 1
+		
+	if Input.is_action_just_pressed("blink"):
+		close_eyes()
+	else: 
+		if Input.is_action_just_released("blink"):
+			open_eyes()
 	
 	# If the player inputs movement actions.
 	if input_vector.length() > 0:
@@ -117,6 +134,7 @@ func rotate_helper(event: InputEvent):
 
 func _process(delta: float):
 	process_input(delta)
+	process_blink(delta)
 	regen_stamina(delta)
 	deplete_stamina(delta)
 	pass
@@ -213,6 +231,7 @@ func show_message(message: String):
 func regen_stamina(delta: float):
 	if current_state == State.WALKING or current_state == State.IDLE:
 		stamina += stamina_regen_rate * delta
+		emit_signal("stamina_changed", stamina)
 	
 	if stamina <= 0.0:
 		stamina_regenerating = stamina <= stamina_threshold
@@ -225,6 +244,7 @@ func regen_stamina(delta: float):
 func deplete_stamina(delta: float):
 	if current_state == State.RUNNING:
 		stamina -= stamina_deplete_rate * delta
+		emit_signal("stamina_changed", stamina)
 	clamp_stamina()
 	pass
 	
@@ -236,6 +256,29 @@ func check_stamina():
 	if stamina <= 0.0:
 		start_walking()
 	pass
+
+func process_blink(delta: float):
+	if blink_timer <= 0.0:
+		blink()
+	else:
+		blink_timer -= blink_current_deplete_rate * delta
+		emit_signal("blink_changed", blink_timer)
+
+func blink():
+	close_eyes()
+	await get_tree().create_timer(0.1).timeout	
+	open_eyes()
+	
+func close_eyes():
+	
+	emit_signal("eyes_closed")
+	blink_current_deplete_rate = 0.0
+	blink_timer = max_blink
+	emit_signal("blink_changed", blink_timer)
+
+func open_eyes():
+	blink_current_deplete_rate = blink_deplete_rate
+	emit_signal("eyes_opened")
 
 func start_running():
 	current_state = State.RUNNING

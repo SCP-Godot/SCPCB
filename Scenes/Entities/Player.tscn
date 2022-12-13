@@ -1,21 +1,22 @@
-[gd_scene load_steps=39 format=3 uid="uid://bj4xwna1y203g"]
+[gd_scene load_steps=31 format=3 uid="uid://bj4xwna1y203g"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ua1i3"]
 [ext_resource type="FontFile" uid="uid://chr6v0f3ggr6x" path="res://Fonts/Roboto-Black.ttf" id="2_brnob"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="2_gwedq"]
 [ext_resource type="Texture2D" uid="uid://cdvwebrd6k2nl" path="res://Textures/flashlight.jpg" id="2_h3qe5"]
 [ext_resource type="Script" path="res://Scripts/FPSLabel.gd" id="3_3g66n"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="4_3ai38"]
 [ext_resource type="Script" path="res://Scripts/EngineInfoLabel.gd" id="5_34xk0"]
 [ext_resource type="FontFile" uid="uid://bstn6m2i72cls" path="res://Fonts/Roboto-Medium.ttf" id="5_ujs62"]
 [ext_resource type="Texture2D" uid="uid://col0drvgk8a1p" path="res://Textures/handsymbol.png" id="8_ssesy"]
 [ext_resource type="Script" path="res://Scripts/InteractIcon.gd" id="9_pdnxj"]
-[ext_resource type="Texture2D" uid="uid://cqtmsxpw1npqd" path="res://Textures/BlinkIcon.png" id="10_8wtyg"]
 [ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="10_bghgm"]
-[ext_resource type="Texture2D" uid="uid://cb5uegsjv4e1r" path="res://Textures/sprinticon.png" id="10_wt7a7"]
-[ext_resource type="FontFile" uid="uid://cwxcu2dq5jbwq" path="res://Fonts/Roboto-Bold.ttf" id="11_2iohg"]
+[ext_resource type="PackedScene" uid="uid://bgu2072r7r7ah" path="res://UI/Bar/BlinkBar.tscn" id="10_vddc2"]
+[ext_resource type="PackedScene" uid="uid://bd3u2d10j5kqb" path="res://UI/Bar/SprintBar.tscn" id="11_5g17p"]
 [ext_resource type="PackedScene" uid="uid://bau6rbx2c7k7b" path="res://UI/Inventory/InventoryUI.tscn" id="11_p3hu3"]
 [ext_resource type="AudioStream" uid="uid://bdpf0sbwdcjdg" path="res://Resources/Footsteps/FootstepsConcreteNew.tres" id="12_tviqj"]
 [ext_resource type="AudioStream" uid="uid://cu6t0t4l0wlr3" path="res://Resources/Footsteps/FootstepsConcreteRunNew.tres" id="13_l7guh"]
+[ext_resource type="Script" path="res://Scripts/UIBar.gd" id="13_v2wgq"]
 [ext_resource type="Script" path="res://Scripts/ViewmodelRoot.gd" id="14_0bw8x"]
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="15_02hbf"]
 [ext_resource type="Resource" uid="uid://d2qcgd3bveucs" path="res://Resources/Items/Medkit.tres" id="18_75wbt"]
@@ -33,52 +34,6 @@ shadow_offset = Vector2(0, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_0eahu"]
 font = ExtResource("5_ujs62")
 shadow_offset = Vector2(0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uflk"]
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.145098, 0.145098, 0.145098, 1)
-border_blend = true
-shadow_color = Color(0, 0, 0, 0.219608)
-shadow_size = 2
-
-[sub_resource type="Gradient" id="Gradient_fhu3p"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0, 0, 0.392157)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mevuu"]
-gradient = SubResource("Gradient_fhu3p")
-
-[sub_resource type="Gradient" id="Gradient_1poww"]
-colors = PackedColorArray(0.199219, 0.199219, 0.199219, 1, 0.355469, 0.355469, 0.355469, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lgedn"]
-gradient = SubResource("Gradient_1poww")
-
-[sub_resource type="LabelSettings" id="LabelSettings_i22x1"]
-font = ExtResource("11_2iohg")
-shadow_color = Color(1, 1, 1, 0)
-shadow_offset = Vector2(0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_553u0"]
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.317647, 0.384314, 0.490196, 1)
-border_blend = true
-shadow_color = Color(0.423529, 0.545098, 0.588235, 0.219608)
-shadow_size = 2
-
-[sub_resource type="Gradient" id="Gradient_ho14q"]
-colors = PackedColorArray(0.231959, 0.249582, 0.273438, 1, 0.358752, 0.453319, 0.558594, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s42jo"]
-gradient = SubResource("Gradient_ho14q")
 
 [sub_resource type="Animation" id="Animation_s4nmt"]
 length = 0.001
@@ -157,6 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_3ai38")
 
 [node name="InteractIcon" type="Sprite2D" parent="UI"]
 visible = false
@@ -165,6 +121,7 @@ script = ExtResource("9_pdnxj")
 
 [node name="Blink" type="ColorRect" parent="UI"]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -173,6 +130,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Overlay" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -184,23 +142,17 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Overlay"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 1904.0
-offset_bottom = 1064.0
+layout_mode = 2
 
 [node name="FPSLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
-offset_right = 1888.0
-offset_bottom = 522.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "144 FPS"
 label_settings = SubResource("LabelSettings_i48im")
 script = ExtResource("3_3g66n")
 
 [node name="EngineInfoLabel" type="Label" parent="UI/Overlay/VBoxContainer"]
-offset_top = 526.0
-offset_right = 1888.0
-offset_bottom = 1048.0
+layout_mode = 2
 size_flags_vertical = 3
 label_settings = SubResource("LabelSettings_0eahu")
 horizontal_alignment = 2
@@ -208,6 +160,7 @@ vertical_alignment = 2
 script = ExtResource("5_34xk0")
 
 [node name="HUD" type="MarginContainer" parent="UI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -219,113 +172,20 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD"]
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 1856.0
-offset_bottom = 1016.0
+layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/HUD/VBoxContainer"]
-offset_top = 884.0
-offset_right = 1792.0
-offset_bottom = 914.0
+[node name="BlinkBar" parent="UI/HUD/VBoxContainer" instance=ExtResource("10_vddc2")]
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/VBoxContainer/HBoxContainer2"]
-offset_right = 30.0
-offset_bottom = 30.0
-texture = ExtResource("10_8wtyg")
-stretch_mode = 2
-
-[node name="PanelContainer" type="Panel" parent="UI/HUD/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(300, 30)
-offset_left = 34.0
-offset_right = 334.0
-offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_7uflk")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer"]
-show_behind_parent = true
-custom_minimum_size = Vector2(300, 30)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-nine_patch_stretch = true
-texture_under = SubResource("GradientTexture1D_mevuu")
-texture_progress = SubResource("GradientTexture1D_lgedn")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 0
-
-[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer2/PanelContainer/TextureProgressBar/MarginContainer"]
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 300.0
-offset_bottom = 26.0
-text = "100%"
-label_settings = SubResource("LabelSettings_i22x1")
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer"]
-offset_top = 922.0
-offset_right = 1792.0
-offset_bottom = 952.0
-
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/VBoxContainer/HBoxContainer"]
-offset_right = 30.0
-offset_bottom = 30.0
-texture = ExtResource("10_wt7a7")
-stretch_mode = 2
-
-[node name="PanelContainer" type="Panel" parent="UI/HUD/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(300, 30)
-offset_left = 34.0
-offset_right = 334.0
-offset_bottom = 30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_553u0")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer"]
-show_behind_parent = true
-custom_minimum_size = Vector2(300, 30)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-nine_patch_stretch = true
-texture_under = SubResource("GradientTexture1D_mevuu")
-texture_progress = SubResource("GradientTexture1D_s42jo")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 0
-
-[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/HBoxContainer/PanelContainer/TextureProgressBar/MarginContainer"]
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 300.0
-offset_bottom = 26.0
-text = "100%"
-label_settings = SubResource("LabelSettings_i22x1")
-horizontal_alignment = 1
+[node name="SprintBar" parent="UI/HUD/VBoxContainer" instance=ExtResource("11_5g17p")]
+layout_mode = 2
+script = ExtResource("13_v2wgq")
 
 [node name="Message" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -341,8 +201,7 @@ metadata/_edit_layout_mode = 1
 [node name="MessageLabel" type="RichTextLabel" parent="UI/Message"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
-offset_right = 1920.0
-offset_bottom = 300.0
+layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("10_bghgm")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -357,6 +216,7 @@ libraries = {
 [node name="InventoryUI" parent="UI" instance=ExtResource("11_p3hu3")]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1792.0
@@ -410,3 +270,8 @@ bus = &"SFX"
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("15_02hbf")
 items = [ExtResource("18_75wbt"), ExtResource("19_0mgc7"), ExtResource("20_2jp7m")]
+
+[connection signal="blink_changed" from="." to="UI" method="_on_player_blink_changed"]
+[connection signal="eyes_closed" from="." to="UI" method="_on_player_eyes_closed"]
+[connection signal="eyes_opened" from="." to="UI" method="_on_player_eyes_opened"]
+[connection signal="stamina_changed" from="." to="UI" method="_on_player_stamina_changed"]
