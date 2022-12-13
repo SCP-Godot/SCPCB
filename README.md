@@ -13,8 +13,8 @@ With **SCP: Godot** being open-source under a MIT license, we encourage everyone
 The project is still in it's infancy, with many features missing.
 
 #### Roadmap
-- Player character with blinking and health mechanics.
-- Inventory system.
+- ~~Player character with blinking and health mechanics.~~
+- ~~Inventory system.~~
 - Port most of Light Containment Zone rooms from Blitz3D to Godot.
 - Room generation ~~(C++, through GDExtension)~~ (see: [Technical details](https://github.com/SCP-Godot/SCPCB#technical-details)).
 - Hostile SCPs:
