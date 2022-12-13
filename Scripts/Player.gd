@@ -49,9 +49,10 @@ var stamina_regenerating = false
 @export var max_blink: float = 1.0
 @export var blink_deplete_rate: float = 0.1
 var blink_current_deplete_rate = blink_deplete_rate
-@onready var blink_overlay: ColorRect = $UI/Blink
+signal eyes_closed
+signal eyes_opened
 
-@onready var blink_ui = $UI/Blink
+
 
 func _ready():
 	camera = $RotationHelper/Camera3D
@@ -265,13 +266,13 @@ func blink():
 	
 func close_eyes():
 	
-	blink_ui.visible = true
+	emit_signal("eyes_closed")
 	blink_current_deplete_rate = 0.0
 	blink_timer = max_blink
 
 func open_eyes():
 	blink_current_deplete_rate = blink_deplete_rate
-	blink_ui.visible = false
+	emit_signal("eyes_opened")
 
 func start_running():
 	current_state = State.RUNNING
