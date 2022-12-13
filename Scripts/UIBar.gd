@@ -1,7 +1,7 @@
-extends Panel
+extends HBoxContainer
 
-@onready var bar = $TextureProgressBar
-@onready var label = $TextureProgressBar/MarginContainer/Label
+@onready var bar = $PanelContainer/TextureProgressBar
+@onready var label = $PanelContainer/TextureProgressBar/MarginContainer/Label
 
 func set_value(input_value: float):
 	bar.value = input_value

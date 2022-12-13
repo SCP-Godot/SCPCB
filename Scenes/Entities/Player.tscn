@@ -13,10 +13,10 @@
 [ext_resource type="FontFile" uid="uid://b8sc1yk52qs5p" path="res://Fonts/Roboto-Regular.ttf" id="10_bghgm"]
 [ext_resource type="PackedScene" uid="uid://bgu2072r7r7ah" path="res://UI/Bar/BlinkBar.tscn" id="10_vddc2"]
 [ext_resource type="PackedScene" uid="uid://bd3u2d10j5kqb" path="res://UI/Bar/SprintBar.tscn" id="11_5g17p"]
-[ext_resource type="Script" path="res://UI/Bar/BlinkBar.gd" id="11_hn07j"]
 [ext_resource type="PackedScene" uid="uid://bau6rbx2c7k7b" path="res://UI/Inventory/InventoryUI.tscn" id="11_p3hu3"]
 [ext_resource type="AudioStream" uid="uid://bdpf0sbwdcjdg" path="res://Resources/Footsteps/FootstepsConcreteNew.tres" id="12_tviqj"]
 [ext_resource type="AudioStream" uid="uid://cu6t0t4l0wlr3" path="res://Resources/Footsteps/FootstepsConcreteRunNew.tres" id="13_l7guh"]
+[ext_resource type="Script" path="res://Scripts/UIBar.gd" id="13_v2wgq"]
 [ext_resource type="Script" path="res://Scripts/ViewmodelRoot.gd" id="14_0bw8x"]
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="15_02hbf"]
 [ext_resource type="Resource" uid="uid://d2qcgd3bveucs" path="res://Resources/Items/Medkit.tres" id="18_75wbt"]
@@ -176,14 +176,12 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 2
 
-[node name="BlinkBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("10_vddc2")]
+[node name="BlinkBar" parent="UI/HUD/VBoxContainer" instance=ExtResource("10_vddc2")]
 layout_mode = 2
-script = ExtResource("11_hn07j")
-player = NodePath("../../../..")
 
-[node name="SprintBar" parent="UI/HUD/VBoxContainer" node_paths=PackedStringArray("player") instance=ExtResource("11_5g17p")]
+[node name="SprintBar" parent="UI/HUD/VBoxContainer" instance=ExtResource("11_5g17p")]
 layout_mode = 2
-player = NodePath("../../../..")
+script = ExtResource("13_v2wgq")
 
 [node name="Message" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(0, 300)
@@ -273,5 +271,7 @@ bus = &"SFX"
 script = ExtResource("15_02hbf")
 items = [ExtResource("18_75wbt"), ExtResource("19_0mgc7"), ExtResource("20_2jp7m")]
 
+[connection signal="blink_changed" from="." to="UI" method="_on_player_blink_changed"]
 [connection signal="eyes_closed" from="." to="UI" method="_on_player_eyes_closed"]
 [connection signal="eyes_opened" from="." to="UI" method="_on_player_eyes_opened"]
+[connection signal="stamina_changed" from="." to="UI" method="_on_player_stamina_changed"]

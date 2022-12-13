@@ -40,24 +40,22 @@ shadow_offset = Vector2(0, 0)
 offset_top = 922.0
 offset_right = 334.0
 offset_bottom = 952.0
+script = ExtResource("1_0fix8")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 30.0
-offset_bottom = 30.0
+layout_mode = 2
 texture = SubResource("NoiseTexture2D_6m5sy")
 stretch_mode = 2
 
 [node name="PanelContainer" type="Panel" parent="."]
 custom_minimum_size = Vector2(300, 30)
-offset_left = 34.0
-offset_right = 334.0
-offset_bottom = 30.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_553u0")
-script = ExtResource("1_0fix8")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer"]
 show_behind_parent = true
 custom_minimum_size = Vector2(300, 30)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,6 +69,7 @@ texture_progress = SubResource("GradientTexture1D_tnsc7")
 radial_center_offset = Vector2(11, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TextureProgressBar"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -80,10 +79,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 0
 
 [node name="Label" type="Label" parent="PanelContainer/TextureProgressBar/MarginContainer"]
-offset_left = 8.0
-offset_top = 4.0
-offset_right = 300.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "100%"
 label_settings = SubResource("LabelSettings_i22x1")
 horizontal_alignment = 1

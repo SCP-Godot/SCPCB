@@ -7,18 +7,7 @@
 [node name="BlinkBar" instance=ExtResource("1_bcews")]
 
 [node name="TextureRect" parent="." index="0"]
-layout_mode = 3
 texture = ExtResource("2_qwe7o")
 
-[node name="PanelContainer" parent="." index="1"]
-layout_mode = 3
-
 [node name="TextureProgressBar" parent="PanelContainer" index="0"]
-layout_mode = 3
 texture_progress = ExtResource("3_angq7")
-
-[node name="MarginContainer" parent="PanelContainer/TextureProgressBar" index="0"]
-layout_mode = 3
-
-[node name="Label" parent="PanelContainer/TextureProgressBar/MarginContainer" index="0"]
-layout_mode = 3
