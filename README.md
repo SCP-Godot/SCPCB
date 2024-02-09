@@ -1,3 +1,5 @@
+**NOTE:** This project is no longer in active development. If you are looking forward to a Godot 4 remake of *SCP - Containment Breach*, check out *[SCP - Containment Breach Reborn](https://twitter.com/HyperityStudios)*!
+
 # SCP: Godot
 An open-source reimagination of SCP - Containment Breach in Godot 4 engine.
 
